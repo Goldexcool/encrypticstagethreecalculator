@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+
+:root {
+  background-color: var(--Verydarkdesaturatedbluemainbackground);
+  --Verydarkdesaturatedbluemainbackground: hsl(222, 26%, 31%);
+  --Verydarkdesaturatedbluetogglebackgroundkeypadbackground: hsl(223, 31%, 20%);
+  --Verydarkdesaturatedbluescreenbackground: hsl(224, 36%, 15%);
+  --Desaturateddarkbluekeybackground: hsl(225, 21%, 49%);
+  --Desaturateddarkbluekeyshadow: hsl(224, 28%, 35%);
+  --Redkeybackgroundtoggle: hsl(6, 63%, 50%);
+  --Darkredkeyshadow: hsl(6, 70%, 34%);
+  --lightgrayishorangekeybackground: hsl(30, 25%, 89%);
+  --Grayishorangekeyshadow: hsl(28, 16%, 65%);
+  --Verydarkgrayishblue: hsl(221, 14%, 31%);
+  --White: hsl(0, 0%, 100%);
+}
+
+[data-theme="second"] {
+  background-color: var(--Verydarkdesaturatedbluemainbackground);
+  --Verydarkdesaturatedbluemainbackground: hsl(0, 0%, 90%);
+  --White: hsl(221, 14%, 31%);
+  --Verydarkdesaturatedbluetogglebackgroundkeypadbackground: hsl(0, 5%, 81%);
+  --Redkeybackgroundtoggle: hsl(25, 98%, 40%);
+  --Verydarkdesaturatedbluescreenbackground: hsl(0, 0%, 93%);
+  --Verydarkdesaturatedbluetogglebackgroundkeypadbackground: hsl(45, 7%, 89%);
+  --lightgrayishorangekeybackground: hsl(0, 0%, 100%);
+  --Verydarkgrayishblue: hsl(60, 10%, 19%);
+  --Desaturateddarkbluekeybackground: hsl(185, 42%, 37%);
+  --Desaturateddarkbluekeyshadow: hsl(185, 58%, 25%);
+  --Darkredkeyshadow: hsl(25, 99%, 27%);
+}
+
+[data-theme="third"] {
+  background-color: var(--Verydarkdesaturatedbluemainbackground);
+  --Verydarkdesaturatedbluemainbackground: hsl(268, 75%, 9%);
+  --White: hsl(52, 100%, 62%);
+  --Verydarkdesaturatedbluetogglebackgroundkeypadbackground: hsl(268, 71%, 12%);
+  --Redkeybackgroundtoggle: hsl(176, 100%, 44%);
+  --Verydarkdesaturatedbluescreenbackground: hsl(268, 47%, 21%);
+  --Verydarkdesaturatedbluetogglebackgroundkeypadbackground: hsl(281, 89%, 26%);
+  --lightgrayishorangekeybackground: hsl(281, 89%, 26%);
+  --Verydarkgrayishblue: hsl(52, 100%, 62%);
+  --Grayishorangekeyshadow: hsl(285, 91%, 52%);
+  --Desaturateddarkbluekeybackground: hsl(268, 47%, 21%);
+  --Desaturateddarkbluekeyshadow: hsl(290, 70%, 36%);
+  --Darkredkeyshadow: hsl(177, 92%, 70%);
+}
+
+* {
+  font-family: "League Spartan", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+.lightmode2 {
+  visibility: hidden;
+}
+
+.darkmode2 {
+  visibility: visible;
+}
+
+#section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.section_wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.calculator__header {
+  display: flex;
+  justify-content: space-between;
+}
+.calculator__header__title {
+  font-size: 2rem;
+  color: var(--White);
+  line-height: 3.6rem;
+  letter-spacing: -0.533333px;
+  padding-top: 0.8rem;
+}
+.calculator__header__toggle-switch {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.calculator__header__toggle-switch__title {
+  font-size: 1rem;
+  line-height: 1.3rem;
+  letter-spacing: 1px;
+  position: absolute;
+  color: var(--White);
+  bottom: 0.5rem;
+  left: -7.2rem;
+}
+.calculator__header__toggle-switch .switcher {
+  width: 7.1rem;
+}
+.calculator__header__toggle-switch .switcher__numbers {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+  line-height: 1.3rem;
+  padding-bottom: 5px;
+  color: var(--White);
+}
+.calculator__header__toggle-switch .switcher .switch {
+  position: relative;
+  height: 2.6rem;
+}
+.calculator__header__toggle-switch .switcher .switch #switch1,
+.calculator__header__toggle-switch .switcher .switch #switch2,
+.calculator__header__toggle-switch .switcher .switch #switch3 {
+  position: absolute;
+  z-index: 9;
+  -webkit-appearance: none;
+}
+.calculator__header__toggle-switch .switcher .switch #switch1 + label::after,
+.calculator__header__toggle-switch .switcher .switch #switch2 + label::after,
+.calculator__header__toggle-switch .switcher .switch #switch3 + label::after {
+  position: absolute;
+  content: "";
+  width: 25px;
+  height: 2.6rem;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  cursor: pointer;
+}
+.calculator__header__toggle-switch .switcher .switch #switch1 + label::after {
+  left: 0;
+}
+.calculator__header__toggle-switch
+  .switcher
+  .switch
+  #switch1:checked
+  ~ .switch__inner::after {
+  left: 13px;
+  transition: left 250ms ease-in-out;
+}
+.calculator__header__toggle-switch .switcher .switch #switch2 + label::after {
+  left: 35px;
+}
+.calculator__header__toggle-switch
+  .switcher
+  .switch
+  #switch2:checked
+  ~ .switch__inner::after {
+  left: 48px;
+  transition: left 250ms ease-in-out;
+}
+.calculator__header__toggle-switch .switcher .switch #switch3 + label::after {
+  left: 80px;
+}
+.calculator__header__toggle-switch
+  .switcher
+  .switch
+  #switch3:checked
+  ~ .switch__inner::after {
+  left: 88px;
+  transition: left 250ms ease-in-out;
+}
+.calculator__header__toggle-switch .switcher .switch__inner {
+  height: 1.8rem;
+  background: var(--Verydarkdesaturatedbluetogglebackgroundkeypadbackground);
+  border-radius: 13px;
+}
+.calculator__header__toggle-switch .switcher .switch__inner::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 5px;
+  left: 0;
+  background-color: var(--Redkeybackgroundtoggle);
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  transform: translateX(0);
+  transition: transform 0.4s;
+  z-index: 10;
+  cursor: pointer;
+}
+.calculator__header__toggle-switch .switcher .switch__inner:hover::after {
+  background-color: var(--Redkeybackgroundtoggle);
+}
+
+/* .theme {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.theme_h1 {
+    font-size: 10px;
+    color: var(--White);
+}
+
+.theme__number {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.theme__number ul {
+    display: flex;
+    justify-content: space-between;
+    color: var(--White);
+}
+
+.toggle {
+    height: 21px;
+    width: 60px;
+    border-radius: 30px;
+    position: relative;
+    background-color: var(--Verydarkdesaturatedbluetogglebackgroundkeypadbackground);
+    border: transparent;
+}
+
+.toggle_tbn_circ {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    left: 0;
+    cursor: pointer;
+    background-color: var(--Redkeybackgroundtoggle);
+} */
+
+.display {
+  padding: 50px 60px;
+  background-color: var(--Verydarkdesaturatedbluescreenbackground);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: none;
+  font-size: 32px;
+  text-align: right;
+  color: var(--White);
+}
+
+.calc__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(
+    --Verydarkdesaturatedbluetogglebackgroundkeypadbackground
+  );
+  margin-top: 1rem;
+  padding: 10px 15px;
+}
+
+.flex-1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.flex-1 button {
+  width: 90px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  font-family: "League Spartan";
+  font-size: 28px;
+  background-color: var(--lightgrayishorangekeybackground);
+  border-bottom: 6px solid var(--Grayishorangekeyshadow);
+  color: var(--Verydarkgrayishblue);
+}
+
+.reset_ {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reset_ button {
+  width: 210px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  color: var(--White);
+  background-color: var(--Desaturateddarkbluekeybackground);
+  border-bottom: 6px solid var(--Desaturateddarkbluekeyshadow);
+  font-weight: 700;
+}
+
+.flex-1 .del {
+  background-color: var(--Desaturateddarkbluekeybackground);
+  border-bottom: 6px solid var(--Desaturateddarkbluekeyshadow);
+  color: var(--White);
+}
+
+.reset_ .equalto {
+  background-color: var(--Redkeybackgroundtoggle);
+  border-bottom: 6px solid var(--Darkredkeyshadow);
+}
+
+.toggle_tbn_circ.light {
+  cursor: pointer;
+  margin-left: 20px;
+}
+.toggle_tbn_circ.blue {
+  cursor: pointer;
+  margin-left: 20px;
+}
+@media (min-width: 320px) and (max-width:768px) {
+    .display {
+        padding: 50px 40px;
+    }
+    .reset_ button {
+        width: 180px;
+}
+}
